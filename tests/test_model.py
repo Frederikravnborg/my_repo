@@ -10,8 +10,9 @@ def test_dims():
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
     model = MyAwesomeModel().to(DEVICE)
 
-    img = torch.load('data/raw/train_images_0.pt')[0].to(DEVICE)
-    y_pred = model(img.unsqueeze(0).unsqueeze(0))
+    # Use a synthetic MNIST-shaped image so the test doesn't depend on local files in CI.
+    x = torch.randn(1, 1, 28, 28, device=DEVICE)
+    y_pred = model(x)
     assert y_pred.shape == torch.Size([1, 10])
 
 
