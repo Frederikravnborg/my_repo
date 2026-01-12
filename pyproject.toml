@@ -22,12 +22,20 @@ dependencies = [
     "dvc-gdrive>=3.0.1",
     "fastapi==0.115.6",
     "gdown>=5.2.0",
+    "hydra-core>=1.3.2",
     "matplotlib>=3.10.8",
     "pathspec<1.0.0",
     "torch==2.6.0",
+    "torchvision>=0.21.0",
     "typer==0.15.1",
     "uvicorn==0.34.0",
 ]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [dependency-groups]
 dev = [
