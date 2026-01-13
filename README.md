@@ -1,6 +1,18 @@
 # my_project
 
+## gcloud command
+gcloud compute ssh --zone europe-west1-d instance-20260113-092614 --project mlops-484208
+
 cokie
+
+## gcloud open premade container.
+gcloud compute instances create my-instance \
+    --zone=europe-west4-a \
+    --image-family=pytorch-2-7-cu128-ubuntu-2404-nvidia-570 \
+    --image-project=deeplearning-platform-release \
+    --accelerator="type=nvidia-tesla-v100,count=1" \
+    --maintenance-policy TERMINATE \
+--metadata="install-nvidia-driver=True"
 
 ## Project structure
 
